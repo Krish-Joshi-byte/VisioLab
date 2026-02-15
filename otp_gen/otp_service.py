@@ -1,7 +1,7 @@
 """
 OTP generation and email sending service.
 """
-import random
+import secrets
 import string
 from datetime import datetime, timedelta
 
@@ -12,7 +12,7 @@ otp_storage = {}
 
 def generate_otp(length=6):
     """
-    Generate a random OTP code.
+    Generate a cryptographically secure random OTP code.
     
     Args:
         length (int): Length of the OTP code
@@ -20,7 +20,7 @@ def generate_otp(length=6):
     Returns:
         str: The generated OTP code
     """
-    return ''.join(random.choices(string.digits, k=length))
+    return ''.join(secrets.choice(string.digits) for _ in range(length))
 
 
 def generate_and_send_otp(email):

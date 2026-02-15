@@ -35,5 +35,5 @@ def get_email_for_user(name):
         
         return None
     except Exception as e:
-        print(f"Error reading contacts: {e}")
+        print(f"Error reading contacts from {contacts_file}: {e}")
         return None

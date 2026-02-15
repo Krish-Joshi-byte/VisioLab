@@ -30,6 +30,9 @@ def insert_user(name, email):
         if name in data.get('names', []):
             print(f"User {name} already exists, updating email")
             index = data['names'].index(name)
+            # Ensure emails array is large enough
+            while len(data['emails']) <= index:
+                data['emails'].append('')
             data['emails'][index] = email
         else:
             # Add new user
